@@ -42,10 +42,10 @@
                 href: '/cards/delCard',
                 title: '刪除卡片',
               },
-              {
+              /*{
                 href: '/cards/token',
                 title: '訪客代碼',
-              },
+              },*/
             ],
           },
         ],

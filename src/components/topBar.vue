@@ -17,9 +17,16 @@
 
 <script setup>
   import { googleTokenLogin } from "vue3-google-login"
+  import axios from "axios";
   const login = () => {
     googleTokenLogin().then((response) => {
-      document.getElementById("loginStatus").innerHTML = "face";
+      
+      axios.post('' , {
+          credential: response.credential,
+          select_by: 'btn'
+      })
+
+      document.getElementById("loginStatus").innerHTML = "face";  //test
       console.log("Handle the response", response)
     })
   }

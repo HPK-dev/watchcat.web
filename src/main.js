@@ -11,6 +11,7 @@ const app = createApp(App)
 app.use(router)
 app.use(VueSidebarMenu)
 app.use(vue3GoogleLogin, {
+    // HINT: Be sure to fill this with your client id
     clientId: ''
 })
 app.config.globalProperties.projectName = 'Watchcat';

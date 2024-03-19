@@ -7,6 +7,12 @@ export default {
         test:'home'
     }
   },
+  mounted(){
+    let isLogged = this.$cookies.get("user-logged");
+    if(isLogged){
+      document.getElementById("loginStatus").innerHTML = "face";
+    }
+  },
   components: {
     topBar,
     sideMenu,

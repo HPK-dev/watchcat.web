@@ -5,10 +5,12 @@ import App from './App.vue'
 import vue3GoogleLogin from 'vue3-google-login'
 import VueSidebarMenu from 'vue-sidebar-menu'
 import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
+import VueCookies from 'vue3-cookies'
 import '@material/web/all.js'
 import { router } from './router.js'
 const app = createApp(App)
 app.use(router)
+app.use(VueCookies);
 app.use(VueSidebarMenu)
 app.use(vue3GoogleLogin, {
     // HINT: Be sure to fill this with your client id

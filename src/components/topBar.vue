@@ -26,14 +26,11 @@
   import axios from "axios";
   const login = () => {
     googleTokenLogin().then((response) => {
-      console.log("Handle the response", response)
-
       // HINT: Be sure to fill this with your server url
       axios.post('' , {
-        access_token: response.access_token
+        access_token: response.access_token,
       })
-
-      document.getElementById("loginStatus").innerHTML = "face";  //test
+      setTimeout(() => {window.location.reload();},1000)
     })
   }
 </script>

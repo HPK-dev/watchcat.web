@@ -1,0 +1,6 @@
+{
+    "room":[
+        {"roomName":"科展0" , "bridge":"豬哥亮" , "floor":"沒死" , "description":"正確" , "id":"keZhanRoom0", "capacity":"20"},
+        {"roomName":"科展1" , "bridge":"豬哥亮" , "floor":"死了" , "description":"造謠" , "id":"keZhanRoom1", "capacity":"25"}
+    ]
+}

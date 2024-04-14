@@ -27,6 +27,14 @@
             }
           },
           {
+            href: '/reserve',
+            title: '預約教室',
+            icon: {
+              element: 'span',
+              text: 'domain_add'
+            },
+          },
+          {
             href: '/cards',
             title: '卡片管理',
             icon: {

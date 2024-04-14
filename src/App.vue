@@ -23,7 +23,7 @@ export default {
 <template>
   <topBar />
   <sideMenu />
-  <router-view style="position: relative;left: 100px;" />
+  <router-view style="position: relative;left: 100px;width: fit-content;" />
 </template>
 
 

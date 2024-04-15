@@ -8,7 +8,9 @@ import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
 import VueCookies from 'vue3-cookies'
 import '@material/web/all.js'
 import { router } from './router.js'
+
 const app = createApp(App)
+
 app.use(router)
 app.use(VueCookies);
 app.use(VueSidebarMenu)

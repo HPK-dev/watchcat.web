@@ -59,7 +59,15 @@
         },
         methods:{
             submit(){
-                console.log("submitted")
+                axios.post('/reserve' , {
+                    roomId: this.roomId,
+                    message: this.message,
+                    beginD: this.beginDate,
+                    beginT: this.beginTime,
+                    endsD: this.endsDate,
+                    endsT: this.endsTime
+                })
+                alert("submitted")
             }
         }
     }
@@ -78,7 +86,7 @@
             </span>
             <h3>Preview : {{ message }} </h3>
             <h3>開始時間 : {{ beginDate }} {{ beginTime }} 結束時間 : {{ endsDate }} {{ endsTime }}</h3>
-            <span class="submit" v-on:click="submit()"><span class="word"><md-icon>add</md-icon><h3 style="display: inline;">送出</h3></span></span>
+            <a href="javascript:;"><span class="submit" v-on:click="submit()"><span class="word"><md-icon>add</md-icon><h3 style="display: inline;">送出</h3></span></span></a>
         </div>
     </div>
 </template>

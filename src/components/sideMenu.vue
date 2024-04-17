@@ -27,7 +27,7 @@
             }
           },
           {
-            href: '/reserve',
+            href: '/roomList',
             title: '預約教室',
             icon: {
               element: 'span',

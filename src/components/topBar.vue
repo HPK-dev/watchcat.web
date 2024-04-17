@@ -27,7 +27,7 @@
   const login = () => {
     googleTokenLogin().then((response) => {
       // HINT: Be sure to fill this with your server url
-      axios.post('' , {
+      axios.post('/token_login' , {
         access_token: response.access_token,
       })
       setTimeout(() => {window.location.reload();},1000)

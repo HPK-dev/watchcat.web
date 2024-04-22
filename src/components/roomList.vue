@@ -43,7 +43,6 @@
             getJson() {
                 try { 
                     axios.get("/test.json").then(response => {
-                        console.log(response);
                         this.data = response.data;
                         //console.log("jsonData = "+JSON.stringify(data, null, 2));
                         //console.log('jsonData.length='+data.room.length);

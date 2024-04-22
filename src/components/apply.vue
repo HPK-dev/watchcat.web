@@ -53,19 +53,17 @@
         },
         mounted(){
             axios.get("/test.json").then(response => {
-                console.log(response.data.room);
                 this.data = response.data.room.find(item => item.id.match(this.roomId))
             })
         },
         methods:{
             submit(){
                 axios.post('/reserve' , {
-                    roomId: this.roomId,
-                    message: this.message,
-                    beginD: this.beginDate,
-                    beginT: this.beginTime,
-                    endsD: this.endsDate,
-                    endsT: this.endsTime
+                    room_id: this.roomId,
+                    description: this.message,
+                    begin: this.beginDate + ' ' + this.beginTime,
+                    ends: this.endsDate + ' ' + this.endsTime,
+                    user_id: this.$cookies.get("user-logged")
                 })
                 alert("submitted")
             }

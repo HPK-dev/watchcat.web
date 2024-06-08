@@ -58,12 +58,13 @@
             <span class="room">image0</span>
             <span class="description">
                 <h2>教室名稱：{{data.roomName}}教室</h2>
-                <h3>人數：{{data.capacity}}</h3>
+                <!--h3>人數：{{data.capacity}}</h3  WIP(capacity)  -->
                 <h3>已到：7</h3>
-                <h3>未到：5</h3>
+                <!--h3>未到：5</h3  WIP(capacity)  -->
             </span>
             <br>
-            <span class="submit"><span class="word"><md-icon>face</md-icon><h3 style="display: inline;margin-left: 3px;">test0</h3></span></span>
+            <!--span class="submit"><span class="word"><md-icon>face</md-icon><h3 style="display: inline;margin-left: 3px;">test0</h3></span></span  WIP(capacity)  -->
+
             <span class="submit entered"><span class="word"><md-icon>face</md-icon><h3 style="display: inline;margin-left: 3px;">test1</h3></span></span>
         </div>
     </div>

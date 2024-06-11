@@ -66,7 +66,7 @@
             <span class="description">
                 <h2>教室名稱：{{item.roomName}}教室</h2>
                 <h3>位置：{{item.bridge}}樓{{item.floor}}樓</h3>
-                <!-- h3>可容納人數：{{item.capacity}}</h3  WIP(capacity)  -->
+                <h3>可容納人數：{{item.capacity}}</h3>
                 <h3>簡介：{{item.description}}</h3>
                 <a :href="`/classroomReserve?room=${item.id}`"><span class="submit"><span class="word"><md-icon>add</md-icon><h3 style="display: inline;">預約</h3></span></span></a>
             </span>

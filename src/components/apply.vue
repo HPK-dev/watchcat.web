@@ -58,10 +58,10 @@
         },
         methods:{
             submit(){
-                axios.post('/reserve' , {
+                axios.put('/reserve' , {
                     room_id: this.roomId,
                     description: this.message,
-                    begin: this.beginDate + ' ' + this.beginTime,
+                    begins: this.beginDate + ' ' + this.beginTime,
                     ends: this.endsDate + ' ' + this.endsTime,
                     user_id: this.$cookies.get("user-logged")
                 })

@@ -8,9 +8,17 @@
 </style>
 <template>
   <div>
-    <span class="icon" style="position: absolute;right: 10px;">
+    <span class="icon" style="position: absolute; right: 10px">
       <md-icon-button @:click="login()">
-        <md-icon id="loginStatus" style="width: fit-content;height: fit-content;text-align: center;color: white;">
+        <md-icon
+          id="loginStatus"
+          style="
+            width: fit-content;
+            height: fit-content;
+            text-align: center;
+            color: white;
+          "
+        >
           account_circle
         </md-icon>
       </md-icon-button>
@@ -20,17 +28,18 @@
   <!--GoogleLogin :callback="callback"/-->
 </template>
 
-
 <script setup>
-import { googleTokenLogin } from "vue3-google-login"
+import { googleTokenLogin } from "vue3-google-login";
 import axios from "axios";
 const login = () => {
   googleTokenLogin().then((response) => {
     // HINT: Be sure to fill this with your server url
-    axios.post('', {
+    axios.post("", {
       access_token: response.access_token,
-    })
-    setTimeout(() => { window.location.reload(); }, 1000)
-  })
-}
+    });
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+  });
+};
 </script>

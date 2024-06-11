@@ -1,11 +1,10 @@
 <script setup>
-import topBar from './components/topBar.vue'
-import sideMenu from './components/sideMenu.vue'
-import { ref, onMounted } from 'vue';
-
+import topBar from "./components/topBar.vue";
+import sideMenu from "./components/sideMenu.vue";
+import { ref, onMounted } from "vue";
 
 // Data
-const test = ref('home');
+const test = ref("home");
 
 // Mounted
 onMounted(() => {
@@ -13,11 +12,11 @@ onMounted(() => {
   if (isLogged) {
     document.getElementById("loginStatus").innerHTML = "face";
   }
-})
+});
 </script>
 
 <template>
   <topBar />
   <sideMenu />
-  <router-view style="position: relative;left: 100px;width: fit-content;" />
+  <router-view style="position: relative; left: 100px; width: fit-content" />
 </template>

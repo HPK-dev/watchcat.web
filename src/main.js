@@ -8,6 +8,7 @@ import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
 import VueCookies from 'vue3-cookies'
 import '@material/web/all.js'
 import { router } from './router.js'
+import { oauthId } from './clientId.js'
 
 const app = createApp(App)
 
@@ -15,8 +16,7 @@ app.use(router)
 app.use(VueCookies);
 app.use(VueSidebarMenu)
 app.use(vue3GoogleLogin, {
-    // HINT: Be sure to fill this with your client id
-    clientId: ''
+    clientId: oauthId
 })
 app.config.globalProperties.projectName = 'Watchcat';
 app.mount('#app')

@@ -3,7 +3,6 @@ import axios from 'axios';
 axios.get('/teapot')
     .catch(function(error){
         if (error.response){
-            console.log(error.response.status)
             if(error.response.status == '418'){
                 document.getElementById('status').innerHTML = 'done'
             } else {

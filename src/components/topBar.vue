@@ -29,8 +29,11 @@
       // HINT: Be sure to fill this with your server url
       axios.post('/token_login' , {
         access_token: response.access_token,
+      }).catch(error => {
+        if(error.response.status == '418'){
+          window.location.reload();
+        }
       })
-      setTimeout(() => {window.location.reload();},1000)
     })
   }
 </script>

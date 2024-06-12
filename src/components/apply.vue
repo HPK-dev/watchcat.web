@@ -58,14 +58,30 @@
         },
         methods:{
             submit(){
-                axios.put('/reserve' , {
-                    room_id: this.roomId,
-                    description: this.message,
-                    begins: this.beginDate + ' ' + this.beginTime,
-                    ends: this.endsDate + ' ' + this.endsTime,
-                    user_id: this.$cookies.get("user-logged")
-                })
-                alert("submitted")
+                if(this.message.length === 0){
+                    alert('您sent了個nothing lah~')
+                }else if(this.beginDate.length === 0 || this.beginTime.length === 0){
+                    alert('您什麼時候要開始？')
+                }else if(this.endsDate.length === 0 || this.endsTime.length === 0){
+                    alert('您這是打算不還了是吧？')
+                }else if(this.$cookies.get("user-logged") == null){
+                    alert('請登入')
+                }else{
+                    axios.put('/reserve' , {
+                        room_id: this.roomId,
+                        description: this.message,
+                        begins: this.beginDate + ' ' + this.beginTime,
+                        ends: this.endsDate + ' ' + this.endsTime,
+                        user_id: this.$cookies.get("user-logged")
+                    }).then(() => {
+                        alert("submitted")
+                        this.$router.push({
+                            path: `/roomList`
+                        })
+                    }).catch(error => {
+                        alert(error.response.data)
+                    })
+                }
             }
         }
     }

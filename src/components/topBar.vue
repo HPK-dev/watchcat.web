@@ -29,17 +29,18 @@
 </template>
 
 <script setup>
-import { googleTokenLogin } from "vue3-google-login";
-import axios from "axios";
-const login = () => {
-  googleTokenLogin().then((response) => {
-    // HINT: Be sure to fill this with your server url
-    axios.post("", {
-      access_token: response.access_token,
-    });
-    setTimeout(() => {
-      window.location.reload();
-    }, 1000);
-  });
-};
+  import { googleTokenLogin } from "vue3-google-login"
+  import axios from "axios";
+  const login = () => {
+    googleTokenLogin().then((response) => {
+      // HINT: Be sure to fill this with your server url
+      axios.post('/token_login' , {
+        access_token: response.access_token,
+      }).catch(error => {
+        if(error.response.status == '418'){
+          window.location.reload();
+        }
+      })
+    })
+  }
 </script>

@@ -40,32 +40,55 @@
   margin-bottom: 1vh;
 }
 </style>
-<script setup>
-import axios from "axios";
-import { ref } from "vue";
-import { reactive, onMounted } from "vue";
-
-// Data
-const data = reactive(ref([]));
-const roomId = reactive(this.$route.query.room);
-const message = reactive(ref([]));
-const beginDate = reactive(ref([]));
-const beginTime = reactive(ref([]));
-const endsDate = reactive(ref([]));
-const endsTime = reactive(ref([]));
-
-// Methods
-const submit = function () {
-  console.log("submitted");
-};
-
-// Mounted
-onMounted(() => {
-  axios.get("/test.json").then((response) => {
-    console.log(response.data.room);
-    data = response.data.room.find((item) => item.id.match(roomId));
-  });
-});
+<script>
+    import axios from 'axios';
+    import { ref } from 'vue'
+    export default {
+        data(){
+            return{
+                data:ref([]),
+                roomId:this.$route.query.room,
+                message:ref([]),
+                beginDate:ref([]),
+                beginTime:ref([]),
+                endsDate:ref([]),
+                endsTime:ref([]),
+            }
+        },
+        mounted(){
+            axios.get("/test.json").then(response => {
+                this.data = response.data.room.find(item => item.id.match(this.roomId))
+            })
+        },
+        methods:{
+            submit(){
+                if(this.message.length === 0){
+                    alert('您sent了個nothing lah~')
+                }else if(this.beginDate.length === 0 || this.beginTime.length === 0){
+                    alert('您什麼時候要開始？')
+                }else if(this.endsDate.length === 0 || this.endsTime.length === 0){
+                    alert('您這是打算不還了是吧？')
+                }else if(this.$cookies.get("user-logged") == null){
+                    alert('請登入')
+                }else{
+                    axios.put('/reserve' , {
+                        room_id: this.roomId,
+                        description: this.message,
+                        begins: this.beginDate + ' ' + this.beginTime,
+                        ends: this.endsDate + ' ' + this.endsTime,
+                        user_id: this.$cookies.get("user-logged")
+                    }).then(() => {
+                        alert("submitted")
+                        this.$router.push({
+                            path: `/roomList`
+                        })
+                    }).catch(error => {
+                        alert(error.response.data)
+                    })
+                }
+            }
+        }
+    }
 </script>
 <template>
   <div>

@@ -1,20 +1,19 @@
 <script setup>
-import axios from "axios";
-axios.get("/teapot").catch(function (error) {
-  if (error.response) {
-    console.log(error.response.status);
-    if (error.response.status == "418") {
-      document.getElementById("status").innerHTML = "done";
-    } else {
-      document.getElementById("status").innerHTML = "warning";
-    }
-  }
-});
-//.then((response) => {
-//    console.log(response.status)
-//})
+import axios from 'axios';
+axios.get('/teapot')
+    .catch(function(error){
+        if (error.response){
+            if(error.response.status == '418'){
+                document.getElementById('status').innerHTML = 'done'
+            } else {
+                document.getElementById('status').innerHTML = 'warning'
+            }
+        }
+    })
+    //.then((response) => {
+    //    console.log(response.status)
+    //})
 </script>
-<script></script>
 <template>
   <div>
     <h1>歡迎來到{{ projectName }}</h1>

@@ -1,37 +1,37 @@
 <style>
-    .room{
-        height: 40vh;
-        width: 40vh;
-        visibility: visible;
-        display: inline-block;
-        background-color: #2a2a2e;
-        border-radius: 3vh;
-        margin: 3vh;
-    }
-    .description{
-        display: inline-block;
-        position: relative;
-        vertical-align: top;
-    }
-    .submit{
-        display: inline-block;
-        height: 6vh;
-        width: 12vh;
-        visibility: visible;
-        background-color: #2a2a2e;
-        border-radius: 2vh;
-        margin: 10px;
-    }
-    .word{
-        height: 6vh;
-        width: 12vh;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .entered{
-        color: #00942a;
-    }
+.room {
+  height: 40vh;
+  width: 40vh;
+  visibility: visible;
+  display: inline-block;
+  background-color: #2a2a2e;
+  border-radius: 3vh;
+  margin: 3vh;
+}
+.description {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+}
+.submit {
+  display: inline-block;
+  height: 6vh;
+  width: 12vh;
+  visibility: visible;
+  background-color: #2a2a2e;
+  border-radius: 2vh;
+  margin: 10px;
+}
+.word {
+  height: 6vh;
+  width: 12vh;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.entered {
+  color: #00942a;
+}
 </style>
 <script>
     import axios from 'axios';
@@ -60,6 +60,8 @@
     }
 </script>
 <template>
+  <div>
+    <h1>教室管理</h1>
     <div>
         <h1>教室管理</h1>
         <div>
@@ -78,4 +80,6 @@
             </span>
         </div>
     </div>
+  </div>
 </template>
+

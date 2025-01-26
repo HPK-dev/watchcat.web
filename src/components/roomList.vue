@@ -1,62 +1,64 @@
 <style>
-    .room{
-        height: 40vh;
-        width: 40vh;
-        visibility: visible;
-        display: inline-block;
-        background-color: #2a2a2e;
-        border-radius: 3vh;
-        margin: 3vh;
-    }
-    .description{
-        display: inline-block;
-        position: relative;
-        vertical-align: top;
-    }
-    .submit{
-        display: inline-block;
-        height: 6vh;
-        width: 12vh;
-        visibility: visible;
-        background-color: #2a2a2e;
-        border-radius: 2vh;
-        color: white;
-    }
-    .word{
-        height: 6vh;
-        width: 12vh;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-    }
+.room {
+  height: 40vh;
+  width: 40vh;
+  visibility: visible;
+  display: inline-block;
+  background-color: #2a2a2e;
+  border-radius: 3vh;
+  margin: 3vh;
+}
+
+.description {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+}
+
+.submit {
+  display: inline-block;
+  height: 6vh;
+  width: 12vh;
+  visibility: visible;
+  background-color: #2a2a2e;
+  border-radius: 2vh;
+  color: white;
+}
+
+.word {
+  height: 6vh;
+  width: 12vh;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
 </style>
-<script>
-    import axios from 'axios';
-    import { ref } from 'vue'
-    export default {
-        data(){
-            return{
-                data:ref([]),
-            }
-        },
-        methods: {
-            getJson() {
-                try { 
-                    axios.get("/test.json").then(response => {
-                        this.data = response.data;
-                        //console.log("jsonData = "+JSON.stringify(data, null, 2));
-                        //console.log('jsonData.length='+data.room.length);
-                        //console.log(data.room)
-                    })
-                } catch (error) {
-                    console.error("Failed to fetch data", error)
-                };
-            }
-        },
-        mounted(){
-            this.getJson()
-        }
-    }
+<script setup>
+import axios from "axios";
+import { ref, reactive, onMounted } from "vue";
+
+// Data
+const data = reactive(ref([]));
+
+// Methods
+const getJson = function () {
+  try {
+    axios.get("/test.json").then((response) => {
+      console.log(response);
+      data = response.data;
+      //console.log("jsonData = "+JSON.stringify(data, null, 2));
+      //console.log('jsonData.length='+data.room.length);
+      //console.log(data.room)
+    });
+  } catch (error) {
+    console.error("Failed to fetch data", error);
+  }
+};
+
+// Mounted
+onMounted(() => {
+  getJson();
+});
 </script>
 <template>
     <div>
@@ -72,4 +74,5 @@
             </span>
         </div>
     </div>
+  </div>
 </template>
